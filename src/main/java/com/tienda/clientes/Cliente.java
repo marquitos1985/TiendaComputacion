@@ -6,11 +6,18 @@ public class Cliente {
     private String nombre;
     private String dni;
     private String email;
+    private boolean consFinal;
+    private boolean premium;
+    private boolean corporativo;
 
-    public Cliente(String nombre, String dni) {
+
+    public Cliente(String nombre, String dni, boolean consFinal, boolean premium, boolean corporativo) {
         this.id = autoid;
         this.nombre = nombre;
         this.dni = dni;
+        this.consFinal = consFinal;
+        this.premium = premium;
+        this.corporativo = corporativo;
 
         autoid++;
     }
@@ -22,6 +29,30 @@ public class Cliente {
         this.email = email;
 
         autoid++;
+    }
+
+    public boolean isConsFinal() {
+        return consFinal;
+    }
+
+    public void setConsFinal(boolean consFinal) {
+        this.consFinal = consFinal;
+    }
+
+    public boolean isPremium() {
+        return premium;
+    }
+
+    public void setPremium(boolean premium) {
+        this.premium = premium;
+    }
+
+    public boolean isCorporativo() {
+        return corporativo;
+    }
+
+    public void setCorporativo(boolean corporativo) {
+        this.corporativo = corporativo;
     }
 
     public int getId() {

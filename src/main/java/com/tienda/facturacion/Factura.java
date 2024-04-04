@@ -10,7 +10,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
-public class Factura {
+public abstract class Factura {
     private static int autoid = 1;
     private final int id;
     private final Cliente cliente;
