@@ -10,4 +10,9 @@ public class FacturaCorporativo extends Factura{
     public FacturaCorporativo(Cliente cliente, Carrito carrito) {
         super(cliente, carrito) ;
     }
+
+    @Override
+    public String mostrar() {
+
+    }
 }

@@ -4,6 +4,9 @@ import com.github.javafaker.Faker;
 import com.tienda.carrito.Carrito;
 import com.tienda.clientes.Cliente;
 import com.tienda.facturacion.Factura;
+import com.tienda.facturacion.FacturaConsFinal;
+import com.tienda.facturacion.FacturaCorporativo;
+import com.tienda.facturacion.FacturaPremium;
 import com.tienda.menu.Menu;
 import com.tienda.menu.MenuConsola;
 import com.tienda.menu.MenuVisual;
@@ -122,13 +125,28 @@ public class Tienda {
             item.getProducto().setStock(stock);
         });
     }
-
+/*
     public String generarFactura(Cliente cliente) {
         Factura factura = new Factura(cliente, this.carrito);
         this.facturas.add(factura);
         return factura.mostrar();
     }
+*/
+    public String generarFactura(Cliente cliente) {
 
+        Factura factura = null;
+        if(cliente.isConsFinal()){
+            factura = new FacturaConsFinal(cliente, this.carrito);
+        }else if(cliente.isPremium()){
+            factura = new FacturaPremium(cliente, this.carrito);
+        }else{
+            factura = new FacturaCorporativo(cliente, this.carrito);
+        }
+
+
+        this.facturas.add(factura);
+        return factura.mostrar();
+    }
     private void cargarDatos() {
         Faker faker = new Faker();
         int contador = 0;

@@ -18,14 +18,42 @@ public abstract class Factura {
     private final LocalDate fecha;
     private final double total;
 
+    private float iva;
+
     public Factura(Cliente cliente, Carrito carrito) {
+        this.iva = 0.21f;
         this.id = autoid;
         this.cliente = cliente;
         this.items = carrito.getItems();
         this.fecha = LocalDate.now();
         this.total = carrito.getTotal();
 
+
         autoid++;
+    }
+
+    public float getIva() {
+        return iva;
+    }
+
+    public LocalDate getFecha() {
+        return fecha;
+    }
+
+    public List<Item> getItems() {
+        return items;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public double getTotal() {
+        return total;
     }
 
     public String mostrar() {
@@ -36,7 +64,7 @@ public abstract class Factura {
             StringBuilder items = new StringBuilder();
             for (Item item : this.items) {
                 items.append(String.format("%-25s|  $%.2f  | %d |  $%.2f\n",
-                        item.getProducto().getNombre(), item.getProducto().getPrecio(), item.getCantidad(), item.getSubtotal() ));
+                        item.getProducto().getNombre(), item.getProducto().getPrecio(), item.getCantidad(), (item.getSubtotal() )));
             }
 
             String formato = """

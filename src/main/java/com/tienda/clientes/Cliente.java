@@ -1,23 +1,19 @@
 package com.tienda.clientes;
 
-public class Cliente {
+public abstract class Cliente {
     private static int autoid = 0;
     private final int id;
     private String nombre;
     private String dni;
     private String email;
-    private boolean consFinal;
-    private boolean premium;
-    private boolean corporativo;
 
 
-    public Cliente(String nombre, String dni, boolean consFinal, boolean premium, boolean corporativo) {
+
+    public Cliente(String nombre, String dni) {
         this.id = autoid;
         this.nombre = nombre;
         this.dni = dni;
-        this.consFinal = consFinal;
-        this.premium = premium;
-        this.corporativo = corporativo;
+
 
         autoid++;
     }
@@ -31,29 +27,7 @@ public class Cliente {
         autoid++;
     }
 
-    public boolean isConsFinal() {
-        return consFinal;
-    }
 
-    public void setConsFinal(boolean consFinal) {
-        this.consFinal = consFinal;
-    }
-
-    public boolean isPremium() {
-        return premium;
-    }
-
-    public void setPremium(boolean premium) {
-        this.premium = premium;
-    }
-
-    public boolean isCorporativo() {
-        return corporativo;
-    }
-
-    public void setCorporativo(boolean corporativo) {
-        this.corporativo = corporativo;
-    }
 
     public int getId() {
         return id;
